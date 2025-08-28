@@ -6,7 +6,7 @@ use App\Http\Controllers\JobSearchController;
 use App\Http\Middleware\SetTenant;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware([SetTenant::class])->group(function () {
+Route::middleware(['tenant'])->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
 
     Route::middleware('auth:api')->group(function () {

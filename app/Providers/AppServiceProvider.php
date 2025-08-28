@@ -2,23 +2,19 @@
 
 namespace App\Providers;
 
+use App\Services\TenantManager;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Passport\Passport;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
     public function register(): void
     {
-        //
+        $this->app->singleton(TenantManager::class);
     }
 
-    /**
-     * Bootstrap any application services.
-     */
     public function boot(): void
     {
-        $this->app->singleton(\App\Services\TenantManager::class, fn () => new \App\Services\TenantManager());
+        Passport::loadKeysFrom('/var/www/passport_keys');
     }
 }

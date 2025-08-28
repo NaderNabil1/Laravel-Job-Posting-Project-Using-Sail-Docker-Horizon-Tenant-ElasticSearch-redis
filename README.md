@@ -15,6 +15,9 @@ Docker Desktop / Engine, Node (optional), Composer
 
 ## Quick start
 ```bash
+
+I made sure to upload all vendor files for making it easier 
+
 composer install
 cp .env.example .env
 
